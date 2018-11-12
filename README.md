@@ -14,7 +14,6 @@ Filename: `<algorithm>_<video>_results.csv`
 	%video
 	%other
 	frameid,truex,truey,predx,predy
-	0,24,216,20,213
 	...
 
 # Scripts
