@@ -18,7 +18,24 @@ Filename: `<algorithm>_<video>_results.csv`
 
 # Scripts
 
-## ProcessResults.py
+## processResults.py
+This script will process a folder of result files formatted as described above.
+It generates
+* summary files for each algorithm
+* a boxplot comparing the algorithms error
+* a figure showing the error over time for all algorithms and videos
+
+Uses Python 3
+
+### Example
+Given a folder with results:
+
+	folder
+		results1.csv
+		results2.csv
+		...
+
+Use `python processResults.py folder`
 
 ## CSV_ImagePointer_COMP370.py
 
