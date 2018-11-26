@@ -11,8 +11,8 @@ newImgDir = os.getcwd()+"\\results\\"
 with open(resultsPath, 'r') as csvFile:
     reader = csv.reader(csvFile)
     
-    for i in range(3): # skip three lines of header
-	next(reader)
+    for i in range(4): # skip four lines of header
+        next(reader)
     
     results=[]
     for row in reader:
@@ -26,12 +26,9 @@ for filename in os.listdir(imgDir):
         with open(imgDir + filename, "rb") as fp:
             im = Image.open(fp)
             draw = ImageDraw.Draw(im)
-            
 	    #Draw ground truth box
-            draw.rectangle([(coords[1]-5,coords[2]-5),(coords[1]+5,coords[2]+5)],width=2, outline = "blue");
-            
+            draw.rectangle([(coords[1]-5,coords[2]-5),(coords[1]+5,coords[2]+5)],width=2, outline = "blue")
 	    #Draw pred box
-            draw.rectangle([(coords[3]-5,coords[4]-5),(coords[3]+5,coords[4]+5)],width=2, outline = "red");
-            
-	    im.save(newImgDir+filename, "JPEG")
+            draw.rectangle([(coords[3]-5,coords[4]-5),(coords[3]+5,coords[4]+5)],width=2, outline = "red")
+            im.save(newImgDir+filename, "JPEG")
             i+=1

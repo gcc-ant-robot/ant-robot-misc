@@ -48,6 +48,7 @@ New images will be created in ".\results" with a 10x10 box centered on (truex, t
 ## CSV_ResultsPrinter_IIT.py
 This script will create the results.csv from the IIT Algorithm's output.
 The configuration requires:
+* X_SCALE and Y_SCALE parameters should be set to the int ceil(image_width/hor_FOV) (e.g. for a 340x240 picture with a 50deg FOV, ceil(340/50) = 7)
 * STNS Dataset GroundTruth.txt is located at "\images\Groundtruth.txt"
 * IIT files exist at ".\results\TargetLocationCol" and ".\results\TargetLocationRow"
 Output is ".\results\\results.csv"
