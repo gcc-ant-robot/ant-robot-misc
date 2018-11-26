@@ -1,11 +1,12 @@
 import os, re, csv
 
-X_SCALE_GUESS = 1
-Y_SCALE_GUESS = 1
+#Set scaling factor used in IIT
+X_SCALE = 7
+Y_SCALE = 7
 
 
 #Parse ground truth file
-truthfile = os.getcwd() + "\\Groundtruth.txt"
+truthfile = os.getcwd() + "\\images\Groundtruth.txt"
 
 truthRect = []
 for line in open(truthfile):
@@ -35,19 +36,19 @@ for line in open(colFile):
 
 pred = []
 for i in range(5,len(rowVals)-2):
-    pred.append([int(rowVals[i])*X_SCALE_GUESS, int(colVals[i])*Y_SCALE_GUESS])
+    pred.append([int(rowVals[i])*X_SCALE, int(colVals[i])*Y_SCALE])
     
 # Prepare data for printing to csv
 results = [['frameid','truex','truey','predx','predy']]
 for i in range(0,len(actual)):
     tup = [i] + actual[i] + pred[i]
     results.append(tup)
-
+    
 #Print to csv
 fileName = os.getcwd() + "\\results\\results.csv"
-csvFile = open(fileName , "w", newline='')
-writer = csv.writer(csvFile)
-writer.writerows(results)
+with open(fileName , "w", newline='') as csvFile:
+    writer = csv.writer(csvFile)
+    writer.writerows(results)
 
 
 
