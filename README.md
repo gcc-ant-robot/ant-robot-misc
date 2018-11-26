@@ -37,8 +37,16 @@ Given a folder with results:
 
 Use `python processResults.py folder`
 
-## CSV_ImagePointer_COMP370.py
+## CSV_ImagePrinter.py
+This script will use a results.csv file (in the above format) to print bounding boxes on a set of images.
+The configuration requires
+* File exists .\results\results.csv
+* Images to print boxes on are in .\images\
+New images will be created in .\results with a 10x10 box centered on truex, truey in blue and centered on predx, predy in red.
 
-## CSV_Results_COMP370.py
-
-## IIT_COMP_370.py
+## CSV_ResultsPrinter_IIT.py
+This script will create the results.csv from the IIT Algorithm's output.
+The configuration requires
+* STNS Dataset GroundTruth.txt is located at "\images\Groundtruth.txt"
+* IIT files exist at .\results\TargetLocationCol and .\results\TargetLocationRow 
+Output is .\results\\results.csv 
