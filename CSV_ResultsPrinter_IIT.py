@@ -4,7 +4,6 @@ import os, re, csv
 X_SCALE = 7
 Y_SCALE = 7
 
-
 #Parse ground truth file
 truthfile = os.getcwd() + "\\images\Groundtruth.txt"
 
@@ -39,12 +38,12 @@ for i in range(5,len(rowVals)-2):
     pred.append([int(rowVals[i])*X_SCALE, int(colVals[i])*Y_SCALE])
     
 # Prepare data for printing to csv
-results = [['frameid','truex','truey','predx','predy']]
+results = [['%IIT Algorithm'],['%video'],['%other'],['frameid','truex','truey','predx','predy']]
 for i in range(0,len(actual)):
     tup = [i] + actual[i] + pred[i]
     results.append(tup)
     
-#Print to csv
+# Print to csv
 fileName = os.getcwd() + "\\results\\results.csv"
 with open(fileName , "w", newline='') as csvFile:
     writer = csv.writer(csvFile)
