@@ -64,7 +64,6 @@ if __name__ == "__main__":
         plt.ylabel("L1 error")
         plt.savefig(p.name + "/" + video + ".jpg", dpi=150)
 
-    plt.savefig(p.name + "/" +'errorTimePlots.png', dpi=150)
 
     for algo in algorithmNames:
         summary = data.loc[data["algorithm"] == algo]["L1"].describe()
