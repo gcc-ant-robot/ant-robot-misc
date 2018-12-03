@@ -8,9 +8,9 @@ def readData(csv_filename):
     file = open(csv_filename, "r")
 
     # Read extra header lines
-    algorithm = file.readline().rstrip()[1:]
-    videoId = file.readline().rstrip()[1:]
-    desc = file.readline().rstrip()[1:]
+    algorithm = file.readline().strip()[1:]
+    videoId = file.readline().strip()[1:]
+    desc = file.readline().strip()[1:]
 
     # Open the results
     data = pd.read_csv(file)
@@ -56,18 +56,13 @@ if __name__ == "__main__":
     plt.savefig(p.name + "/" + "boxplot.jpg", dpi=150)
 
     # Generate Error over time figure
-    plt.rcParams["figure.figsize"] = (12,12)
-    fig = plt.figure()
-    fig.suptitle("L1 Error vs. time")
     for row, video in enumerate(videoNames):
-        for col, algo in enumerate(algorithmNames):
-            # Define subplot and plot it
-            ax = plt.subplot(len(videoNames), len(algorithmNames), row*len(algorithmNames)+col+1)
-            if(row == 0):
-                ax.set_title(algo)
-            if(col == 0):
-                ax.set_ylabel(video)
-            plt.plot(data.loc[(data["algorithm"] == algo) & (data["video"] == video)]["L1"])
+        # Define subplot and plot it
+        fig, ax = plt.subplots(figsize=(8,6))
+        data.loc[(data["video"] == video)].groupby(["algorithm"])["L1"].plot( x="time",y="L1 Error",title=video, legend=True)
+        plt.xlabel("time")
+        plt.ylabel("L1 error")
+        plt.savefig(p.name + "/" + video + ".jpg", dpi=150)
 
     plt.savefig(p.name + "/" +'errorTimePlots.png', dpi=150)
 
