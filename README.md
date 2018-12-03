@@ -52,3 +52,10 @@ The configuration requires:
 * STNS Dataset GroundTruth.txt is located at "\images\Groundtruth.txt"
 * IIT files exist at ".\results\TargetLocationCol" and ".\results\TargetLocationRow"
 Output is ".\results\\results.csv"
+
+
+## BaselineAlgorithm
+
+This script takes a bounding box output file (`all_bboxes.csv`) and outputs a results file where the first bounding box's center is always predicted.
+
+Output is `algorithm_{input filename}.csv`.
